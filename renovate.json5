@@ -1,17 +1,18 @@
 {
   extends: [
-    'config:recommended',
-    ':separateMultipleMajorReleases',
-    ':ignoreUnstable',
+    "config:recommended",
+    ":separateMultipleMajorReleases",
+    ":ignoreUnstable",
+    ":dependencyDashboard",
   ],
   packageRules: [
     {
-      "matchPackagePatterns": ["renovate-tf-test"],
-      "matchManagers": ["terraform"],
-      "enabled": false
-    }
+      matchPackagePatterns: ["renovate-tf-test"],
+      matchManagers: ["terraform"],
+      enabled: false,
+    },
   ],
-  minimumReleaseAge: '3 days',
+  minimumReleaseAge: "3 days",
   configMigration: true,
   terraform: {
     pinDigests: true,
