@@ -17,6 +17,7 @@ resource "aws_iam_role" "test_role" {
 
   tags = {
     bar = "foo"
+    foo = "bar"
   }
 
 }
