@@ -16,5 +16,6 @@
   configMigration: true,
   terraform: {
     pinDigests: true,
+    versioning: "regex:^((?<compatibility>.*)-v|v*)(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)$"
   },
 }
