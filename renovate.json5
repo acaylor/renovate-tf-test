@@ -7,15 +7,10 @@
   ],
   packageRules: [
     {
-      matchPackagePatterns: ["renovate-tf-test"],
+      matchPackagePatterns: ["^renovate-tf-test"],
       matchManagers: ["terraform"],
-      enabled: false,
-    },
+      versioning: "regex:^((?<compatibility>.*)-v|v*)(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)$"
+    }
   ],
-  minimumReleaseAge: "3 days",
-  configMigration: true,
-  terraform: {
-    pinDigests: true,
-    versioning: "regex:^((?<compatibility>.*)-v|v*)(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)$"
-  },
+  configMigration: true
 }
