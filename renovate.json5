@@ -5,11 +5,11 @@
     ":ignoreUnstable",
     ":dependencyDashboard",
   ],
-  packageRules: [
-    {
-      matchPackagePatterns: ["^test-module"],
-      matchManagers: ["terraform"],
-      versioning: "regex:^((?<compatibility>.*)-v|v*)(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)$"
+  "regexManagers": [{
+      "fileMatch": ["\\.tf$"],
+      "matchStrings": ["\\s*source\\s*=\\s*\"github.com/(?<depName>.*?)\\/\\/.*\\?ref=(?<currentValue>.*?)\"\\s"],
+      "datasourceTemplate": "github-tags",
+      "versioningTemplate": "regex:^((?<compatibility>.*)-v|v*)(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)$"
     }
   ],
   configMigration: true
