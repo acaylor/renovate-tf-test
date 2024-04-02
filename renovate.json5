@@ -5,11 +5,12 @@
     ":ignoreUnstable",
     ":dependencyDashboard",
   ],
-  "packageRules": [{
+  "customManagers": [{
+      "customType": "regex",
       "fileMatch": ["\\.tf$"],
       "matchStrings": ["^\\s+source\\s*=\\s*\"github.com\/(?<depName>.*?\\/\\/.*)\\?ref=(?<currentValue>.*?)\""],
-      "matchDatasources": "git-tags",
-      "versioning": "regex:^((?<compatibility>.*)-v|v*)(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)$"
+      "datasourceTemplate": "git-tags",
+      "versioningTemplate": "regex:^((?<compatibility>.*)-v|v*)(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)$"
     }
   ],
   configMigration: true
