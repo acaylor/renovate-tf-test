@@ -1,16 +1,22 @@
 {
   extends: [
-    "config:recommended",
-    ":separateMultipleMajorReleases",
-    ":ignoreUnstable",
-    ":dependencyDashboard",
+    'config:recommended',
+    ':separateMultipleMajorReleases',
+    ':ignoreUnstable',
+    ':dependencyDashboard',
   ],
-  "regexManagers": [{
-      "fileMatch": ["\\.tf$"],
-      "matchStrings": ["\\s*source\\s*=\\s*\"github.com/(?<depName>.*?)\\/\\/.*\\?ref=(?<currentValue>.*?)\"\\s"],
-      "datasourceTemplate": "git-tags",
-      "versioningTemplate": "regex:^((?<compatibility>.*)-v|v*)(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)$"
-    }
+  customManagers: [
+    {
+      customType: 'regex',
+      fileMatch: [
+        '\\.tf$',
+      ],
+      matchStrings: [
+        '\\s*source\\s*=\\s*"github.com/(?<depName>.*?)\\/\\/.*\\?ref=(?<currentValue>.*?)"\\s',
+      ],
+      datasourceTemplate: 'git-tags',
+      versioningTemplate: 'regex:^((?<compatibility>.*)-v|v*)(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)$',
+    },
   ],
-  configMigration: true
+  configMigration: true,
 }
