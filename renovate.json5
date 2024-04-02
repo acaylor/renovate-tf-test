@@ -8,7 +8,7 @@
   "regexManagers": [{
       "fileMatch": ["\\.tf$"],
       "matchStrings": ["\\s*source\\s*=\\s*\"github.com/(?<depName>.*?)\\/\\/.*\\?ref=(?<currentValue>.*?)\"\\s"],
-      "datasourceTemplate": "github-tags",
+      "datasourceTemplate": "git-tags",
       "versioningTemplate": "regex:^((?<compatibility>.*)-v|v*)(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)$"
     }
   ],
