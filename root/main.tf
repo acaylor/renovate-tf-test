@@ -11,5 +11,5 @@ module "test_bucket" {
 }
 
 module "test_module" {
-  source  = "github.com/acaylor/renovate-tf-test.git//test-module?ref=test-module-v0.0.1"
+  source  = "github.com/acaylor/renovate-tf-test.git//test-module?ref=v0.0.2"
 }
