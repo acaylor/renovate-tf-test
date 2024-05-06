@@ -1,6 +1,6 @@
 module "test_bucket" {
   source  = "terraform-aws-modules/s3-bucket/aws"
-  version = "~> 1.0"
+  version = "~> 3.0"
 
   bucket = "test-bucket-name"
   acl = "private"
